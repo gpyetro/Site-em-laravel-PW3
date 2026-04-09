@@ -110,11 +110,22 @@ Arquivo: `.env`
 
 2. Criar `.env` (se necessário):
    - `copy .env.example .env`
+   - Windows (PowerShell): 'copy .env.example .env' 
+   - Linux/Mac: 'cp .env.example .env'
 
 3. Gerar chave da aplicação:
    - `php artisan key:generate`
 
-4. Iniciar o servidor:
+4. Configurar o Banco de Dados (Necessário para as rotas):
+
+- Opção Rápida (SQLite): No arquivo .env, mude para DB_CONNECTION=sqlite, crie um arquivo vazio chamado database.sqlite na pasta database/ e rode php artisan migrate.
+- - Crie o arquivo do banco via terminal:
+- Windows (PowerShell): New-Item -Path database -Name database.sqlite -ItemType File
+- Linux/Mac: touch database/database.sqlite
+
+- Opção Padrão (MySQL): Crie um banco chamado pyetro no seu MySQL (XAMPP) e rode php artisan migrate.
+
+5. Iniciar o servidor:
    - `php artisan serve`
 
 Acesse:
